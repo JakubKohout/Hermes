@@ -1,0 +1,7 @@
+parameters:
+#    hermes_report.example.class: Hermes\ReportBundle\Example
+
+services:
+#    hermes_report.example:
+#        class: %hermes_report.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

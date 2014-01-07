@@ -1,0 +1,8 @@
+hermes_model:
+    resource: "@HermesModelBundle/Resources/config/routing.yml"
+    prefix:   /
+
+hermes_report:
+    resource: "@HermesReportBundle/Resources/config/routing.yml"
+    prefix:   /
+
