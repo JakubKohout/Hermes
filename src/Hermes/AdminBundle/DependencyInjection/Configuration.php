@@ -1,6 +1,6 @@
 <?php
 
-namespace Hermes\ReportBundle\DependencyInjection;
+namespace Hermes\AdminBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

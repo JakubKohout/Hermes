@@ -1,0 +1,11 @@
+hermes_admin_homepage:
+    pattern:  /
+    defaults: { _controller: HermesAdminBundle:Default:index }
+
+hermes_report_homepage:
+    pattern: /branches
+    defaults: { _controller: HermesAdminBundle:Report:index }
+
+hermes_report_branches_amount_of_sales:
+    pattern: /branches/amount-of-sales/{from}/{to}
+    defaults: { _controller: HermesAdminBundle:Report:branchesByAmountOfSales, from: 01/01/2013, to: 31/12/2013 }

@@ -1,3 +1,0 @@
-hermes_report_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: HermesReportBundle:Default:index }

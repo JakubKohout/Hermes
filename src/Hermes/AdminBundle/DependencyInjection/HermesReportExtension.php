@@ -1,6 +1,6 @@
 <?php
 
-namespace Hermes\ReportBundle\DependencyInjection;
+namespace Hermes\AdminBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -19,6 +19,12 @@ class HermesReportExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $container->setParameter(
+            'current_date',
+            date("d/m/Y")
+        );
+
+
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 

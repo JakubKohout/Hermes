@@ -3,6 +3,5 @@ hermes_model:
     prefix:   /
 
 hermes_report:
-    resource: "@HermesReportBundle/Resources/config/routing.yml"
+    resource: "@HermesAdminBundle/Resources/config/routing.yml"
     prefix:   /
-
