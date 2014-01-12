@@ -12,8 +12,21 @@ class Office
     /** 
      * @ORM\Id
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $city;
+
 
     /** 
      * @ORM\OneToMany(targetEntity="Contract", mappedBy="Office")
@@ -121,4 +134,41 @@ class Office
     {
         return $this->employees;
     }
+
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+
+
+
 }
