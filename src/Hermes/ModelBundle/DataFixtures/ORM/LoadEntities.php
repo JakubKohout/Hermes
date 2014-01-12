@@ -31,12 +31,12 @@ class LoadEntities implements FixtureInterface
         $generator = \Faker\Factory::create();
         $generator->addProvider(new CS_CZ_ADDRESS($generator));
         $populator = new \Faker\ORM\Doctrine\Populator($generator, $manager);
-        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Customer', 8500,
+        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Customer', 6500,
             array(
                 'personal_number' => function() use ($generator) { return $generator->randomNumber(60,95) . $generator->month() . $generator->dayOfMonth() .'/'.$generator->randomNumber(4);}
             ));
 
-        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Participant', 10000,
+        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Participant', 8000,
             array(
                 'personal_number' => function() use ($generator) { return $generator->randomNumber(60,95) . $generator->month() . $generator->dayOfMonth() .'/'.$generator->randomNumber(4);}
             ));
@@ -61,7 +61,7 @@ class LoadEntities implements FixtureInterface
                 'country' => function() use ($generator, $countries) {return $countries[$generator->randomNumber(0, count($countries) - 1)];}
         ));
 
-        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Contract', 15000,
+        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Contract', 10000,
             array(
                 'price' => function() use ($generator) {return $generator->randomNumber(2500, 70000);},
                 'signed' => function() use ($generator) {return $generator->dateTimeBetween(new \DateTime('01.01.2013'), new \DateTime('31.12.2013'));}
