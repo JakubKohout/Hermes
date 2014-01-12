@@ -29,6 +29,7 @@ class LoadEntities implements FixtureInterface
     function load(ObjectManager $manager)
     {
         $generator = \Faker\Factory::create();
+        $generator->addProvider(new CS_CZ_ADDRESS($generator));
         $populator = new \Faker\ORM\Doctrine\Populator($generator, $manager);
         $populator->addEntity('Hermes\\ModelBundle\\Entity\\Customer', 240,
             array(
@@ -41,7 +42,7 @@ class LoadEntities implements FixtureInterface
             ));
 
         $populator->addEntity('Hermes\\ModelBundle\\Entity\\Office', 10, array(
-            'name' => function() use ($generator) {return $generator->city;}
+            'name' => function() use ($generator) {return $generator->getCity();}
         ));
 
         $populator->addEntity('Hermes\\ModelBundle\\Entity\\Employee', 10, array(
@@ -62,7 +63,7 @@ class LoadEntities implements FixtureInterface
 
         $populator->addEntity('Hermes\\ModelBundle\\Entity\\Contract', 200,
             array(
-                'price' => function() use ($generator) {return $generator->randomNumber(15000, 70000);},
+                'price' => function() use ($generator) {return $generator->randomNumber(2500, 70000);},
                 'signed' => function() use ($generator) {return $generator->dateTimeBetween(new \DateTime('01.01.2013'), new \DateTime('31.12.2013'));}
             ));
 
@@ -184,5 +185,21 @@ class LoadEntities implements FixtureInterface
 
         return $countryEntities;
     }
+
+}
+
+
+class CS_CZ_ADDRESS extends \Faker\Provider\Base
+{
+
+    private static $cities = array(
+        'Praha', 'Brno', 'Olomouc', 'Chomutov', 'Ostrava', 'České Budějovice', 'Tábor', 'Ústí nad Labem', 'Most', 'Teplice', 'Liberec', 'Česká lípa', 'Pardubice', 'Hradec Králové', 'Kolín',
+        'Karlovy Vary', 'Cheb', 'Plzeň', 'Benešov', 'Moravská Třebová'
+    );
+
+    public function getCity(){
+        return self::$cities[$this->generator->randomNumber(0, count(self::$cities) - 1)];
+    }
+
 
 }
