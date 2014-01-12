@@ -19,6 +19,9 @@ class AppKernel extends Kernel
             new Hermes\AdminBundle\HermesAdminBundle(),
             new Hermes\ModelBundle\HermesModelBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this)
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
