@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title>Hermes - power for your business</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="windows-1250">
+    <link rel="stylesheet" href="./bootstrap.css" media="screen">
+    <link rel="stylesheet" href="./assets/css/bootswatch.min.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/bootstrap/assets/js/html5shiv.js"></script>
+      <script src="../bower_components/bootstrap/assets/js/respond.min.js"></script>
+    <![endif]-->
+   
+  </head>
+  <body>
+    <script src="./assets/js/bsa.js"></script>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">Blue Travel</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+       </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="smlouvy.html" id="smlouvy">Smlouvy</a>
+               
+            </li>
+            <li>
+              <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="klienti.html" id="klienti">Klienti</span></a>
+              
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="objednavky.html" id="objednavky">Pobočky</a>
+             
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="reporty.html" id="themes">Reporty <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a tabindex="-1" href="reporty-pocet-prodanych.html">Podřízené pobočky podle počtu prodaných zájezdů</a></li>
+                <li><a tabindex="-1" href="reporty-cena-prodanych.html">Podřízené pobočky podle ceny prodaných zájezdů</a></li>
+                <li><a tabindex="-1" href="reporty-cenove-kategorie.html">Podřízené pobočky podle počtu prodaných zájezdů v cenových kategoriích</a></li>
+                <li><a tabindex="-1" href="reporty-narust-pokles.html">Seznam poboček s největším nárustem/poklesem prodeje</a></li>
+               <li><a tabindex="-1" href="reporty-zajezdy-zeme.html">Přehled zemí zájezdů dle zemí</a></li>
+              </ul>
+            </li>
+          </ul>
+           
+
+          <ul class="nav navbar-nav navbar-right">
+<li>
+
+</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+
+      <div class="page-header" id="banner">
+        <div class="row">
+                <div class="col-lg-1">
+                <img src="assets/images/logo.png">
+          </div>   
+          <div class="col-lg-4">
+            <h1>Hermes</h1>
+            <p>power for your business</p>
+          </div>          
+        </div>
+      </div>
+
+<!-- Main -->
+<h2>Reporty</h2>
+<h3>Seznam poboček s největším nárůstem/poklesem prodeje za daný časový interval</h3>
+
+<table class="table table-bordered">
+<tr>
+<th>#</th>
+<th>Pobočka</th>
+<th>Od - do</th>
+<th>Prodaných zájezdů</th>
+<th>Změna (%)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Praha</td>
+<td>1.1.2013 - 31.12.2013</td>
+<td>420</td>
+<td>150%</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Karlovy Vary - Táborská</td>
+<td>1.1.2013 - 31.12.2013</td>
+<td>120</td>
+<td>120%</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>České Budějovice - Mánesova</td>
+<td>1.1.2013 - 31.12.2013</td>
+<td>115</td>
+<td>105%</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Brno - Nám. Svobody</td>
+<td>1.1.2013 - 31.12.2013</td>
+<td>107</td>
+<td>101%</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Olomouc - Pražská</td>
+<td>1.1.2013 - 31.12.2013</td>
+<td>101</td>
+<td>75%</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Plzeň - Pivovarská</td>
+<td>1.1.2013 - 31.12.2013</td>
+<td>99</td>
+<td>60%</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Mladá Boleslav</td>
+<td>1.1.2013 - 31.12.2013</td>
+<td>72</td>
+<td>50%</td>
+</tr>
+</table>
+<button type="button" class="btn btn-default">Export</button>
+ 
+
+
+      <footer>
+       <hr>
+        <div class="row">
+          <div class="col-lg-12">
+            
+            <ul class="list-unstyled">
+              <li class="divider"></li>
+              <li class="pull-right"><a href="#top">Back to top</a></li>
+              <li><a href="index.html">Domů</a></li>
+              </ul>
+            <p>Made by ISA PT34 Team</p>
+                        <p>Jakub Kohout, Patrik Vlnas, Oldřich Kovář, Jan Hadač, Liliya Schmidt</p>
+            <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.</p>
+            <p>Based on <a href="http://getbootstrap.com">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts">Google</a>.</p>
+
+          </div>
+        </div>
+        
+      </footer>
+    
+
+    </div>
+
+
+    <script src="./bower_components/jquery/jquery.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/js/bootswatch.js"></script>
+  </body>
+</html>
