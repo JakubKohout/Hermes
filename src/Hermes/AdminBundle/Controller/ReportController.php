@@ -35,23 +35,10 @@ class ReportController extends Controller{
     }
 
 
-    private function parseDateTime(Request $request){
-        if(empty($request->query->get('beginDate'))){
-            $beginDate = \DateTime::createFromFormat('d/m/Y', '01/01/2013');
-        }else{
-            $beginDate = \DateTime::createFromFormat('d/m/Y', $request->query->get('beginDate'));
-        }
-
-        if(empty($request->query->get('endDate'))){
-            $endDate = \DateTime::createFromFormat('d/m/Y', '31/12/2013');
-        }else{
-            $endDate = \DateTime::createFromFormat('d/m/Y', $request->query->get('endDate'));
-        }
-
-        return [$beginDate, $endDate];
-    }
-
-
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function branchesByAmountOfSalesAction(Request $request){
         list($beginDate, $endDate) = $this->parseDateTime($request);
 
@@ -60,6 +47,10 @@ class ReportController extends Controller{
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function branchesByPriceRangesAction(Request $request){
         list($beginDate, $endDate) = $this->parseDateTime($request);
 
@@ -82,18 +73,41 @@ class ReportController extends Controller{
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function mostPopularCountriesAction(Request $request){
         list($beginDate, $endDate) = $this->parseDateTime($request);
 
         $countries = $this->countriesFinder->findAllWithSales($beginDate, $endDate);
-
-        #\Doctrine\Common\Util\Debug::dump($countries);
 
         return $this->render('HermesAdminBundle:Report:mostPopularCountries.html.twig', array(
             'countries' => $countries,
             'beginDate' => $beginDate,
             'endDate' => $endDate
         ));
+    }
+
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    private function parseDateTime(Request $request){
+        if(empty($request->query->get('beginDate'))){
+            $beginDate = \DateTime::createFromFormat('d/m/Y', '01/01/2013');
+        }else{
+            $beginDate = \DateTime::createFromFormat('d/m/Y', $request->query->get('beginDate'));
+        }
+
+        if(empty($request->query->get('endDate'))){
+            $endDate = \DateTime::createFromFormat('d/m/Y', '31/12/2013');
+        }else{
+            $endDate = \DateTime::createFromFormat('d/m/Y', $request->query->get('endDate'));
+        }
+
+        return [$beginDate, $endDate];
     }
 
 
