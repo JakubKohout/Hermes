@@ -24,5 +24,7 @@ class HermesModelExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+        $loader->load('finders.yml');
+        $loader->load('facades.yml');
     }
 }

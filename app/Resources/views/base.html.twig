@@ -49,10 +49,9 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path('hermes_report_homepage') }}" id="themes">Reporty<span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="themes">
                         <li><a tabindex="-1" href="{{ path('hermes_report_branches_amount_of_sales') }}">Podřízené pobočky podle počtu prodaných zájezdů</a></li>
-                        <li><a tabindex="-1" href="reporty-cena-prodanych.html">Podřízené pobočky podle ceny prodaných zájezdů</a></li>
-                        <li><a tabindex="-1" href="reporty-cenove-kategorie.html">Podřízené pobočky podle počtu prodaných zájezdů v cenových kategoriích</a></li>
+                        <li><a tabindex="-1" href="{{ path('hermes_report_branches_price_ranges') }}">Podřízené pobočky podle počtu prodaných zájezdů v cenových kategoriích</a></li>
                         <li><a tabindex="-1" href="reporty-narust-pokles.html">Seznam poboček s největším nárustem/poklesem prodeje</a></li>
-                        <li><a tabindex="-1" href="reporty-zajezdy-zeme.html">Přehled zemí zájezdů dle zemí</a></li>
+                        <li><a tabindex="-1" href="{{ path('hermes_report_countries_most_popular') }}">Přehled zemí zájezdů dle zemí</a></li>
                     </ul>
                 </li>
             </ul>
@@ -84,6 +83,29 @@
 
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
+
+
+    <footer>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <ul class="list-unstyled">
+                    <li class="divider"></li>
+                    <li class="pull-right"><a href="#top">Back to top</a></li>
+                    <li><a href="index.html">Domů</a></li>
+                </ul>
+                <p>Made by ISA PT34 Team</p>
+                <p>Jakub Kohout, Patrik Vlnas, Oldřich Kovář, Jan Hadač, Liliya Schmidt</p>
+                <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.</p>
+                <p>Based on <a href="http://getbootstrap.com">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts">Google</a>.</p>
+
+            </div>
+        </div>
+
+    </footer>
+
+
 </div>
 
 

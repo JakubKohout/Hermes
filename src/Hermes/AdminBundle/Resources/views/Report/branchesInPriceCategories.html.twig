@@ -1,0 +1,32 @@
+{%  extends "base.html.twig" %}
+{% block body %}
+
+<h2>Reporty</h2>
+<h3>Přehled podřízených poboček podle počtu prodaných zájezdů v cenových kategoriích</h3>
+
+{% for range in ranges %}
+<h4>Cenová kategorie: {{ range.min }}-{{ range.max }}</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Pobočka</th>
+        <th>Prodaných zájezdů</th>
+        <th>Obrat</th>
+    </tr>
+
+    {% for branch in range.branches %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ branch.name }}</td>
+        <td>{{ branch.totalCount }}</td>
+        <td><button type="button" class="btn btn-default btn-kategorie">Detail</button></td>
+    </tr>
+    {% endfor%}
+
+
+</table>
+<button type="button" class="btn btn-default">Export</button>
+
+{% endfor %}
+
+{% endblock %}

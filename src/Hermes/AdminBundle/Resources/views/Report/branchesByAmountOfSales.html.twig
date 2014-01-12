@@ -4,11 +4,10 @@
 <!-- Main -->
 <h2>Reporty</h2>
 
-<h3>Seznam pod��zen�ch pobo�ek podle po�tu prodan�ch z�jezd� za definovan� �asov� interval</h3>
-
+<h3>Seznam podřízených poboček podle počtu prodaných zájezdů za definovaný časový interval</h3>
 <div class="well">
     <div class="input-append date" id="datetimepicker1">
-        <input data-format="dd/MM/yyyy" type="text">
+        <input data-format="dd/MM/yyyy" type="text" value="{{ beginDate.format('d/m/Y') }}">
        <span class="add-on">
     <button type="button" class="btn btn-default btn-lg btn-interval">
         Od
@@ -17,7 +16,7 @@
     </div>
 
     <div class="input-append date" id="datetimepicker2">
-        <input data-format="dd/MM/yyyy" type="text">
+        <input data-format="dd/MM/yyyy" type="text" value="{{ endDate.format('d/m/Y') }}">
        <span class="add-on">
     <button type="button" class="btn btn-default btn-lg btn-interval">
         Do
@@ -48,80 +47,22 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
-        <th>Pobo�ka</th>
-        <th>Od - do</th>
-        <th>Prodan�ch z�jezd�</th>
+        <th>Pobočka</th>
+        <th>Obrat</th>
+        <th>Prodaných zájezdů</th>
     </tr>
+    {% for branch in branches %}
     <tr>
-        <td>1</td>
-        <td>Praha</td>
-        <td>1.1.2013 - 31.12.2013</td>
-        <td>420</td>
+        <td>{{ loop.index }}</td>
+        <td>{{ branch.name }}</td>
+        <td>{{ branch.totalPrice }} Kč</td>
+        <td>{{ branch.totalCount }}</td>
     </tr>
-
-    <tr>
-        <td>2</td>
-        <td>Karlovy Vary - T�borsk�</td>
-        <td>1.1.2013 - 31.12.2013</td>
-        <td>120</td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>�esk� Bud�jovice - M�nesova</td>
-        <td>1.1.2013 - 31.12.2013</td>
-        <td>115</td>
-    </tr>
-
-    <tr>
-        <td>4</td>
-        <td>Brno - N�m. Svobody</td>
-        <td>1.1.2013 - 31.12.2013</td>
-        <td>107</td>
-    </tr>
-
-    <tr>
-        <td>5</td>
-        <td>Olomouc - Pra�sk�</td>
-        <td>1.1.2013 - 31.12.2013</td>
-        <td>101</td>
-    </tr>
-
-    <tr>
-        <td>6</td>
-        <td>Plze� - Pivovarsk�</td>
-        <td>1.1.2013 - 31.12.2013</td>
-        <td>99</td>
-    </tr>
-
-    <tr>
-        <td>7</td>
-        <td>Mlad� Boleslav</td>
-        <td>1.1.2013 - 31.12.2013</td>
-        <td>72</td>
-    </tr>
+    {% endfor %}
 </table>
 <button type="button" class="btn btn-default">Export</button>
 
 
-<footer>
-    <hr>
-    <div class="row">
-        <div class="col-lg-12">
 
-            <ul class="list-unstyled">
-                <li class="divider"></li>
-                <li class="pull-right"><a href="#top">Back to top</a></li>
-                <li><a href="index.html">Dom�</a></li>
-            </ul>
-            <p>Made by ISA PT34 Team</p>
-            <p>Jakub Kohout, Patrik Vlnas, Old�ich Kov��, Jan Hada�, Liliya Schmidt</p>
-            <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.</p>
-            <p>Based on <a href="http://getbootstrap.com">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts">Google</a>.</p>
-
-        </div>
-    </div>
-
-</footer>
 
 {% endblock %}
