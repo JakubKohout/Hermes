@@ -21,13 +21,8 @@ class Country
      */
     private $name;
 
-    /** 
-     * @ORM\ManyToMany(targetEntity="Trip", inversedBy="Country")
-     * @ORM\JoinTable(
-     *     name="TripCountry",
-     *     joinColumns={@ORM\JoinColumn(name="country_id", referencedColumnName="id", nullable=false)},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="trip_id", referencedColumnName="id", nullable=false)}
-     * )
+    /**
+     * @ORM\OneToMany(targetEntity="Trip", mappedBy="country")
      */
     private $trips;
     /**

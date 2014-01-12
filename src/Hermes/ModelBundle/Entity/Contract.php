@@ -17,38 +17,54 @@ class Contract
     private $id;
 
     /** 
-     * @ORM\ManyToOne(targetEntity="Office", inversedBy="Contract")
+     * @ORM\ManyToOne(targetEntity="Office", inversedBy="contracts")
      * @ORM\JoinColumn(name="office_id", referencedColumnName="id", nullable=false)
      */
     private $office;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Employee", inversedBy="Contract")
+     * @ORM\ManyToOne(targetEntity="Employee", inversedBy="contracts")
      * @ORM\JoinColumn(name="employee_id", referencedColumnName="id", nullable=false)
      */
     private $employee;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Trip", inversedBy="Contract")
+     * @ORM\ManyToOne(targetEntity="Trip", inversedBy="contracts")
      * @ORM\JoinColumn(name="trip_id", referencedColumnName="id", nullable=false)
      */
     private $trip;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="Contract")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="contracts")
      * @ORM\JoinColumn(name="customers_id", referencedColumnName="id", nullable=false)
      */
     private $customer;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Participant", inversedBy="Contract")
+     * @ORM\ManyToMany(targetEntity="Participant", inversedBy="contracts")
      * @ORM\JoinTable(
-     *     name="ContractParticipant",
+     *     name="contract_participant",
      *     joinColumns={@ORM\JoinColumn(name="contracts_id", referencedColumnName="id", nullable=false)},
      *     inverseJoinColumns={@ORM\JoinColumn(name="participants_id", referencedColumnName="id", nullable=false)}
      * )
      */
     private $participants;
+
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $signed;
+
+
+    /**
+     * @var float
+     * @ORM\Column(type="float")
+     */
+    private $price;
+
+
     /**
      * Constructor
      */
@@ -203,5 +219,37 @@ class Contract
     public function getParticipants()
     {
         return $this->participants;
+    }
+
+    /**
+     * @param \DateTime $signed
+     */
+    public function setSigned(\DateTime $signed)
+    {
+        $this->signed = $signed;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getSigned()
+    {
+        return $this->signed;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

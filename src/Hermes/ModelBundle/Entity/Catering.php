@@ -27,12 +27,17 @@ class Catering
     private $description;
 
     /** 
-     * @ORM\OneToMany(targetEntity="Service", mappedBy="Catering")
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="catering")
      */
     private $services;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Trip", inversedBy="Catering")
+     * @var ORM\Column(type="float")
+     */
+    private $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Trip", inversedBy="caterings")
      * @ORM\JoinColumn(name="trip_id", referencedColumnName="id", nullable=false)
      */
     private $trip;

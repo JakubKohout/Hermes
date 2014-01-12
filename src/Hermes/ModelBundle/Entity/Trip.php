@@ -16,8 +16,9 @@ class Trip
      */
     private $id;
 
+
     /** 
-     * @ORM\OneToMany(targetEntity="Contract", mappedBy="Trip")
+     * @ORM\OneToMany(targetEntity="Contract", mappedBy="trip")
      */
     private $contracts;
 
@@ -49,9 +50,14 @@ class Trip
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Country", mappedBy="Trip")
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="trips")
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id", nullable=false)
      */
-    private $countries;
+    private $country;
+
+
+
+
     /**
      * Constructor
      */
@@ -266,35 +272,22 @@ class Trip
     }
 
     /**
-     * Add countries
-     *
-     * @param \Hermes\ModelBundle\Entity\Country $countries
-     * @return Trip
+     * @param mixed $country
      */
-    public function addCountry(\Hermes\ModelBundle\Entity\Country $countries)
+    public function setCountry($country)
     {
-        $this->countries[] = $countries;
-
-        return $this;
+        $this->country = $country;
     }
 
     /**
-     * Remove countries
-     *
-     * @param \Hermes\ModelBundle\Entity\Country $countries
+     * @return mixed
      */
-    public function removeCountry(\Hermes\ModelBundle\Entity\Country $countries)
+    public function getCountry()
     {
-        $this->countries->removeElement($countries);
+        return $this->country;
     }
 
-    /**
-     * Get countries
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCountries()
-    {
-        return $this->countries;
-    }
+
+
+
 }

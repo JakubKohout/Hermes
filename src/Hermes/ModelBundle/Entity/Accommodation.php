@@ -17,12 +17,12 @@ class Accommodation
     private $id;
 
     /** 
-     * @ORM\OneToMany(targetEntity="Service", mappedBy="Accommodation")
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="accommodation")
      */
     private $services;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Trip", inversedBy="Accommodation")
+     * @ORM\ManyToOne(targetEntity="Trip", inversedBy="accommodation")
      * @ORM\JoinColumn(name="trip_id", referencedColumnName="id", nullable=false)
      */
     private $trip;

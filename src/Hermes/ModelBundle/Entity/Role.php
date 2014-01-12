@@ -16,6 +16,12 @@ class Role
      */
     private $id;
 
+    /**
+     * @var String
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
     /** 
      * @ORM\ManyToMany(targetEntity="Employee", mappedBy="Role")
      */
@@ -83,4 +89,23 @@ class Role
     {
         return $this->employees;
     }
+
+    /**
+     * @param String $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return String
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+
 }

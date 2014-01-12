@@ -25,6 +25,7 @@ class Type
      * @ORM\OneToMany(targetEntity="Trip", mappedBy="Type")
      */
     private $trips;
+
     /**
      * Constructor
      */

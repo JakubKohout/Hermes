@@ -16,8 +16,14 @@ class Category
      */
     private $id;
 
+    /**
+     * @var String
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
     /** 
-     * @ORM\OneToMany(targetEntity="Trip", mappedBy="Category")
+     * @ORM\OneToMany(targetEntity="Trip", mappedBy="category")
      */
     private $trips;
 
@@ -73,5 +79,23 @@ class Category
     {
         return $this->trips;
     }
+
+    /**
+     * @param String $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return String
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
 
 }
