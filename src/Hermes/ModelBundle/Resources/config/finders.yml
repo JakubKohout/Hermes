@@ -1,0 +1,9 @@
+services:
+    hermes.model.finders.contracts:
+        class:  Hermes\ModelBundle\Finders\ContractsFinder
+        arguments: [@doctrine.orm.entity_manager]
+
+    hermes.model.finders.countries:
+        class:  Hermes\ModelBundle\Finders\CountriesFinder
+        arguments: [@doctrine.orm.entity_manager]
+
