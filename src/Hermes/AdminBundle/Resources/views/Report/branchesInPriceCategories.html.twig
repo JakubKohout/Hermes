@@ -4,6 +4,31 @@
 <h2>Reporty</h2>
 <h3>Přehled podřízených poboček podle počtu prodaných zájezdů v cenových kategoriích</h3>
 
+<div class="well">
+    <form action="" method="GET">
+        <div class="input-append date" id="datetimepicker1">
+            <input data-format="dd/MM/yyyy" type="text" value="{{ beginDate.format('d/m/Y') }}" name="beginDate">
+       <span class="add-on">
+    <button type="button" class="btn btn-default btn-lg btn-interval">
+        Od
+    </button>
+    </span>
+        </div>
+
+        <div class="input-append date" id="datetimepicker2">
+            <input data-format="dd/MM/yyyy" type="text" value="{{ endDate.format('d/m/Y') }}" name="endDate">
+        <span class="add-on">
+            <button type="button" class="btn btn-default btn-lg btn-interval">
+                Do
+            </button>
+    </span>
+        </div>
+        <button type="submit" class="btn btn-default btn-lg btn-interval">
+            Nastavit interval
+        </button>
+    </form>
+</div>
+
 {% for range in ranges %}
 <h4>Cenová kategorie: {{ range.min }}-{{ range.max }}</h4>
 <table class="table table-bordered">

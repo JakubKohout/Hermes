@@ -6,26 +6,28 @@
 
 <h3>Seznam podřízených poboček podle počtu prodaných zájezdů za definovaný časový interval</h3>
 <div class="well">
-    <div class="input-append date" id="datetimepicker1">
-        <input data-format="dd/MM/yyyy" type="text" value="{{ beginDate.format('d/m/Y') }}">
-       <span class="add-on">
-    <button type="button" class="btn btn-default btn-lg btn-interval">
-        Od
-    </button>
-    </span>
-    </div>
+    <form action="" method="GET">
+        <div class="input-append date" id="datetimepicker1">
+            <input data-format="dd/MM/yyyy" type="text" value="{{ beginDate.format('d/m/Y') }}" name="beginDate">
+           <span class="add-on">
+        <button type="button" class="btn btn-default btn-lg btn-interval">
+            Od
+        </button>
+        </span>
+        </div>
 
-    <div class="input-append date" id="datetimepicker2">
-        <input data-format="dd/MM/yyyy" type="text" value="{{ endDate.format('d/m/Y') }}">
-       <span class="add-on">
-    <button type="button" class="btn btn-default btn-lg btn-interval">
-        Do
-    </button>
-    </span>
-    </div>
-    <button type="button" class="btn btn-default btn-lg btn-interval">
-        Nastavit interval
-    </button>
+        <div class="input-append date" id="datetimepicker2">
+            <input data-format="dd/MM/yyyy" type="text" value="{{ endDate.format('d/m/Y') }}" name="endDate">
+            <span class="add-on">
+                <button type="button" class="btn btn-default btn-lg btn-interval">
+                    Do
+                </button>
+        </span>
+        </div>
+        <button type="submit" class="btn btn-default btn-lg btn-interval">
+            Nastavit interval
+        </button>
+    </form>
 </div>
 
 <script type="text/javascript">

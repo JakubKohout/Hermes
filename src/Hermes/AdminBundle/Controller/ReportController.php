@@ -12,6 +12,7 @@ use Hermes\ModelBundle\Finders\ContractsFinder;
 use Hermes\ModelBundle\Finders\CountriesFinder;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JMS\DiExtraBundle\Annotation\Inject;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class ReportController extends Controller{
@@ -34,20 +35,33 @@ class ReportController extends Controller{
     }
 
 
+    private function parseDateTime(Request $request){
+        if(empty($request->query->get('beginDate'))){
+            $beginDate = \DateTime::createFromFormat('d/m/Y', '01/01/2013');
+        }else{
+            $beginDate = \DateTime::createFromFormat('d/m/Y', $request->query->get('beginDate'));
+        }
 
-    public function branchesByAmountOfSalesAction($beginDate = null, $endDate = null){
+        if(empty($request->query->get('endDate'))){
+            $endDate = \DateTime::createFromFormat('d/m/Y', '31/12/2013');
+        }else{
+            $endDate = \DateTime::createFromFormat('d/m/Y', $request->query->get('endDate'));
+        }
 
-        $beginDate = \DateTime::createFromFormat('d/m/Y',$beginDate);
-        $endDate = \DateTime::createFromFormat('d/m/Y',$endDate);
+        return [$beginDate, $endDate];
+    }
+
+
+    public function branchesByAmountOfSalesAction(Request $request){
+        list($beginDate, $endDate) = $this->parseDateTime($request);
 
         $branches = $this->contractsFinder->findAllGroupedByBranch($beginDate, $endDate);
         return $this->render('HermesAdminBundle:Report:branchesByAmountOfSales.html.twig', array('branches' => $branches, 'beginDate' => $beginDate, 'endDate' => $endDate));
     }
 
 
-    public function branchesByPriceRangesAction($beginDate = null, $endDate = null){
-        $beginDate = \DateTime::createFromFormat('d/m/Y',$beginDate);
-        $endDate = \DateTime::createFromFormat('d/m/Y',$endDate);
+    public function branchesByPriceRangesAction(Request $request){
+        list($beginDate, $endDate) = $this->parseDateTime($request);
 
         $ranges = [
             ['min' => 0, 'max' => 9999],
@@ -61,21 +75,24 @@ class ReportController extends Controller{
         }
 
         return $this->render('HermesAdminBundle:Report:branchesInPriceCategories.html.twig', array(
-            'ranges' => $ranges
+            'ranges' => $ranges,
+            'beginDate' => $beginDate,
+            'endDate' => $endDate
         ));
     }
 
 
-    public function mostPopularCountriesAction($beginDate = null, $endDate = null){
-        $beginDate = \DateTime::createFromFormat('d/m/Y',$beginDate);
-        $endDate = \DateTime::createFromFormat('d/m/Y',$endDate);
+    public function mostPopularCountriesAction(Request $request){
+        list($beginDate, $endDate) = $this->parseDateTime($request);
 
         $countries = $this->countriesFinder->findAllWithSales($beginDate, $endDate);
 
         #\Doctrine\Common\Util\Debug::dump($countries);
 
         return $this->render('HermesAdminBundle:Report:mostPopularCountries.html.twig', array(
-            'countries' => $countries
+            'countries' => $countries,
+            'beginDate' => $beginDate,
+            'endDate' => $endDate
         ));
     }
 
