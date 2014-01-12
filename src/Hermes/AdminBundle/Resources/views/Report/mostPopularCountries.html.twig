@@ -25,18 +25,20 @@
         </form>
     </div>
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Destinace</th>
-        <th>Vypsanych zajezdu</th>
-        <th>Obrat zajezdu</th>
-        <th>Prumerna cena zajezdu</th>
-        <th>Počet zájezdů</th>
-    </tr>
+<table class="table table-bordered tablesorter">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Destinace</th>
+            <th>Vypsanych zajezdu</th>
+            <th>Obrat zajezdu</th>
+            <th>Prumerna cena zajezdu</th>
+            <th>Počet zájezdů</th>
+        </tr>
+    </thead>
 
+    <tbody>
     {% for country in countries %}
-
     <tr>
         <td>{{ loop.index }}</td>
         <td>{{ country.name }}</td>
@@ -45,8 +47,8 @@
         <td>{% if country.totalCount == 0 %} N/A {% else %} {{ (country.totalPrice / country.totalCount)|number_format(2) }} {% endif %}</td>
         <td>{{ country.totalCount }}</td>
     </tr>
-
     {% endfor %}
+    </tbody>
 </table>
 <button type="button" class="btn btn-default">Export</button>
 

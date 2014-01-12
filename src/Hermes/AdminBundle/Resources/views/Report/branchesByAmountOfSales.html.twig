@@ -46,25 +46,27 @@
     });
 </script>
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Pobočka</th>
-        <th>Obrat</th>
-        <th>Prodaných zájezdů</th>
-    </tr>
-    {% for branch in branches %}
-    <tr>
-        <td>{{ loop.index }}</td>
-        <td>{{ branch.name }}</td>
-        <td>{{ branch.totalPrice }} Kč</td>
-        <td>{{ branch.totalCount }}</td>
-    </tr>
-    {% endfor %}
+<table class="table table-bordered tablesorter" id="tablesorter">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Pobočka</th>
+            <th>Obrat</th>
+            <th>Prodaných zájezdů</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for branch in branches %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ branch.name }}</td>
+            <td>{{ branch.totalPrice }} Kč</td>
+            <td>{{ branch.totalCount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 <button type="button" class="btn btn-default">Export</button>
-
-
 
 
 {% endblock %}

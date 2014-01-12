@@ -31,14 +31,16 @@
 
 {% for range in ranges %}
 <h4>Cenová kategorie: {{ range.min }}-{{ range.max }}</h4>
-<table class="table table-bordered">
+<table class="table table-bordered tablesorter">
+    <thead>
     <tr>
         <th>#</th>
         <th>Pobočka</th>
         <th>Prodaných zájezdů</th>
         <th>Obrat</th>
     </tr>
-
+    </thead>
+    <tbody>
     {% for branch in range.branches %}
     <tr>
         <td>{{ loop.index }}</td>
@@ -47,7 +49,7 @@
         <td>{{ branch.totalPrice|number_format(2) }}</td>
     </tr>
     {% endfor%}
-
+    </tbody>
 
 </table>
 <button type="button" class="btn btn-default">Export</button>
