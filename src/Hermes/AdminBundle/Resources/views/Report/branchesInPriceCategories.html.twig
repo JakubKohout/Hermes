@@ -44,7 +44,7 @@
         <td>{{ loop.index }}</td>
         <td>{{ branch.name }}</td>
         <td>{{ branch.totalCount }}</td>
-        <td><button type="button" class="btn btn-default btn-kategorie">Detail</button></td>
+        <td>{{ branch.totalPrice|number_format(2) }}</td>
     </tr>
     {% endfor%}
 
