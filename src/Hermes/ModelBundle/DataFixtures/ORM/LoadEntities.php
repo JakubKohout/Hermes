@@ -31,12 +31,12 @@ class LoadEntities implements FixtureInterface
         $generator = \Faker\Factory::create();
         $generator->addProvider(new CS_CZ_ADDRESS($generator));
         $populator = new \Faker\ORM\Doctrine\Populator($generator, $manager);
-        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Customer', 240,
+        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Customer', 8500,
             array(
                 'personal_number' => function() use ($generator) { return $generator->randomNumber(60,95) . $generator->month() . $generator->dayOfMonth() .'/'.$generator->randomNumber(4);}
             ));
 
-        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Participant', 500,
+        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Participant', 10000,
             array(
                 'personal_number' => function() use ($generator) { return $generator->randomNumber(60,95) . $generator->month() . $generator->dayOfMonth() .'/'.$generator->randomNumber(4);}
             ));
@@ -54,14 +54,14 @@ class LoadEntities implements FixtureInterface
         $categories = $this->loadCategories($manager);
 
 
-        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Trip', 200,
+        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Trip', 400,
             array(
                 'type' => function() use ($generator, $types) {return $types[$generator->randomNumber(0, count($types) - 1)];},
                 'category' => function() use ($generator, $categories) {return $categories[$generator->randomNumber(0, count($categories) - 1)];},
                 'country' => function() use ($generator, $countries) {return $countries[$generator->randomNumber(0, count($countries) - 1)];}
         ));
 
-        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Contract', 200,
+        $populator->addEntity('Hermes\\ModelBundle\\Entity\\Contract', 15000,
             array(
                 'price' => function() use ($generator) {return $generator->randomNumber(2500, 70000);},
                 'signed' => function() use ($generator) {return $generator->dateTimeBetween(new \DateTime('01.01.2013'), new \DateTime('31.12.2013'));}
