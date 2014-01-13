@@ -3,6 +3,12 @@ Project Hermes
 
 This is just college project, which doesn't make any sense for real production unless some travel agency company would like to buy it :)
 
+Requirements
+------------
+
+PHP 5.5+
+Composer
+
 
 1) Installing project Hermes
 ----------------------------------
