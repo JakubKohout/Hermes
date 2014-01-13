@@ -23,7 +23,8 @@
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "fzaninotto/faker": "1.4.*@dev",
-        "jms/di-extra-bundle": "1.4.*"
+        "jms/di-extra-bundle": "1.4.*",
+        "liuggio/ExcelBundle": "2.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

@@ -36,8 +36,8 @@
     <tr>
         <th>#</th>
         <th>Pobočka</th>
-        <th>Prodaných zájezdů</th>
         <th>Obrat</th>
+        <th>Prodaných zájezdů</th>
     </tr>
     </thead>
     <tbody>
@@ -45,15 +45,18 @@
     <tr>
         <td>{{ loop.index }}</td>
         <td>{{ branch.name }}</td>
-        <td>{{ branch.totalCount }}</td>
         <td>{{ branch.totalPrice|number_format(2) }}</td>
+        <td>{{ branch.totalCount }}</td>
     </tr>
     {% endfor%}
     </tbody>
 
 </table>
-<button type="button" class="btn btn-default">Export</button>
+
+<br /><br />
 
 {% endfor %}
+
+<a type="button" class="btn btn-default" href="{{ path(app.request.get('_route'), {'format': '.xls', 'beginDate': beginDate.format('d/m/Y'), 'endDate': endDate.format('d/m/Y') } ) }}">Export</a>
 
 {% endblock %}

@@ -7,14 +7,14 @@ hermes_report_homepage:
     defaults: { _controller: HermesAdminBundle:Report:index }
 
 hermes_report_branches_amount_of_sales:
-    pattern: /branches/amount-of-sales
-    defaults: { _controller: HermesAdminBundle:Report:branchesByAmountOfSales}
+    pattern: /branches/amount-of-sales{format}
+    defaults: { _controller: HermesAdminBundle:Report:branchesByAmountOfSales, format: '.html'}
 
 hermes_report_branches_price_ranges:
-    pattern: /branches/price-ranges
-    defaults: { _controller: HermesAdminBundle:Report:branchesByPriceRanges}
+    pattern: /branches/price-ranges{format}
+    defaults: { _controller: HermesAdminBundle:Report:branchesByPriceRanges, format: '.html'}
 
 hermes_report_countries_most_popular:
-    pattern: /countries/most-popular
-    defaults: { _controller: HermesAdminBundle:Report:mostPopularCountries}
+    pattern: /countries/most-popular{format}
+    defaults: { _controller: HermesAdminBundle:Report:mostPopularCountries, format: '.html'}
 
