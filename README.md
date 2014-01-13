@@ -6,8 +6,8 @@ This is just college project, which doesn't make any sense for real production u
 Requirements
 ------------
 
-PHP 5.5+
-Composer
+* PHP 5.5+
+* Composer
 
 
 1) Installing project Hermes
